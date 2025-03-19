@@ -58,6 +58,10 @@ type ClusterRoleBinding struct {
 	// Besides the typical subject for a binding, a ManagedServiceAccount can be used as a subject as well.
 	// +required
 	rbacv1.Subject `json:"subject"`
+
+	// RoleRef contains information that points to the role being used
+	// +optional
+	RoleRef `json:"roleRef"`
 }
 
 // Role represents the Role that is being created on the managed cluster
@@ -102,6 +106,10 @@ type RoleRef struct {
 	// Kind is the type of resource being referenced
 	// +required
 	Kind string `json:"kind"`
+
+	// Name is the name of the existing role to be referenced
+	// +optional
+	Name string `json:"name"`
 }
 
 // ClusterPermissionStatus defines the observed state of ClusterPermission

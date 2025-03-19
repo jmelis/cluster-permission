@@ -101,6 +101,19 @@ spec:
                 description: ClusterRoleBinding represents the ClusterRoleBinding
                   that is being created on the managed cluster
                 properties:
+                  roleRef:
+                    description: RoleRef contains information that points to the role
+                      being used
+                    properties:
+                      kind:
+                        description: Kind is the type of resource being referenced
+                        type: string
+                      name:
+                        description: Name is the name of the existing role to be referenced
+                        type: string
+                    required:
+                    - kind
+                    type: object
                   subject:
                     description: |-
                       Subject contains a reference to the object or user identities a ClusterPermission binding applies to.
@@ -198,6 +211,10 @@ spec:
                       properties:
                         kind:
                           description: Kind is the type of resource being referenced
+                          type: string
+                        name:
+                          description: Name is the name of the existing role to be
+                            referenced
                           type: string
                       required:
                       - kind
